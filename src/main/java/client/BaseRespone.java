@@ -7,6 +7,26 @@ public class BaseRespone {
 	boolean status;
 	
 	Object response;
+	
+	String error_msg;
+	
+	
+
+	public Object getResponse() {
+		return response;
+	}
+
+	public void setResponse(Object response) {
+		this.response = response;
+	}
+
+	public String getError_msg() {
+		return error_msg;
+	}
+
+	public void setError_msg(String error_msg) {
+		this.error_msg = error_msg;
+	}
 
 	public String getTag() {
 		return tag;
@@ -24,13 +44,7 @@ public class BaseRespone {
 		this.status = status;
 	}
 
-	public Object getResponse() {
-		return response;
-	}
 
-	public void setRespone(Object response) {
-		this.response = response;
-	}
 	
 	
 }
