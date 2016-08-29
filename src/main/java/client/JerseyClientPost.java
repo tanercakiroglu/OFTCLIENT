@@ -54,12 +54,12 @@ public class JerseyClientPost {
 
 			Client client = Client.create();
 
-			WebResource webResource = client.resource("http://localhost:8081/OFT/user/getuser");
+			WebResource webResource = client.resource("http://localhost:8081/OFT/user/login/makdut/makdut");
 
-			String input = "{\"name\":\"Metallica\",\"uname\":\"Fade To Black\",\"pass\":\"Fade To Black\"}";
+			
 
 		    
-			ClientResponse response = webResource.type("application/json").post(ClientResponse.class, input);
+			ClientResponse response = webResource.type("application/json").post(ClientResponse.class);
 			BaseRespone responseServer = response.getEntity(BaseRespone.class);
 			Gson gson = new Gson();
 			System.out.println("Output from Server .... \n");
@@ -71,9 +71,9 @@ public class JerseyClientPost {
 			Type collectionType = new TypeToken<ArrayList<User>>(){}.getType();
 			ArrayList<User> enums = gson.fromJson(responseServer.getResponse().toString(), collectionType);
 			 for (User user : enums) {
-					System.out.println(user.getName());
-					System.out.println(user.getUname());
-					System.out.println(user.getPass());
+					System.out.println(user.getUserName());
+					System.out.println(user.getUserName());
+					System.out.println(user.getRoomNO());
 				} 
 			}
 			else if(responseServer.getError_msg()!=null){
